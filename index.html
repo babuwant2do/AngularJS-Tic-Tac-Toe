@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- <script src="http://code.angularjs.org/1.2.13/angular.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
+    <!-- 
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    -->
+    <!-- new  -->
+    
+    <link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link data-require="bootstrap-css@3.*" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
+    <script data-require="angular.js@1.6.5" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script data-require="angular-animate@1.6.*" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+    <script data-require="angular-touch@1.6.*" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+
+    <!--  new -->
+    <script src="app.js"></script>
+    <script src="./entities/game/board-controller.js"></script>
+    <script src="./entities/players/players-controller.js"></script>
+    <script src="./service/players.service.js"></script>
+    <script src="./entities/modal/confirmationModalCtrl.js"></script>
+
+
+    <link rel="stylesheet" href="./myStyle.css">
+
+
+    <!--  -->
+    
+    <script src="./entities/game/controllers/GameBoardController.js"></script>
+    <script src="./entities/game/controllers/GameBoardFieldController.js"></script>
+    <script src="./entities/game/controllers/GameBoardInfoController.js"></script>
+    <!--  -->
+   
+</head>
+
+<body ng-app="ticTacToeApp">
+
+ <nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="home">Tic Tac Toe</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a ui-sref="players">Players</a></li>
+        <li><a ui-sref="game">Game Board</a></li>
+    </ul>
+</nav> 
+<!--  -->
+<!-- <div ng-include="'./entities/navbar.html'" class="container"></div> -->
+<!--  -->
+<div class="container">
+    <div ui-view></div>
+</div>
+
+</body>
+</html>

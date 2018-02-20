@@ -1,0 +1,35 @@
+.list-group {
+    margin-bottom: 0px !important  ;
+}
+
+.user-list, .add-user{
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: aliceblue;
+}
+
+.cell {
+    height: 50px;
+    width: 50px;
+    margin: 2px;
+}
+
+.free-cell{
+    background: lightsteelblue;
+    animation: blink 1s steps(2, start) infinite;
+}
+
+.player-1-cell{
+    background: lightsalmon;
+}
+.player-2-cell{
+    background: lightpink;
+}
+
+.winning-cell{
+    background: red;
+}
+
+.result-draw{
+    background: lightyellow;
+}

@@ -1,0 +1,32 @@
+<div class="jumbotron text-center">
+    <h1>Users List Page</h1>
+</div>
+<div class="row">
+
+    <div class="col-sm-6 user-list">
+        
+        <div class="input-group add-user">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input ng-model="newPlayer" id="msg" type="text" class="form-control" name="msg" placeholder="Add New User Name">
+            <div class="input-group-btn">
+                <button class="btn btn-default" ng-click="addNewUser()">
+                    <i class="glyphicon glyphicon-plus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="pre-scrollable">
+            <ul class="list-group" ng-repeat="x in playersList | orderBy: 'name'">
+                <li class="list-group-item list-group-item-action"  ui-sref=".details" ng-click="showUserDetails(x)">{{x.name}}</li>
+            </ul>
+        </div>
+ 
+    </div>
+    
+    
+    <div class="col-sm-6">
+            <div ui-view="userDetails"></div>
+    </div>
+
+    
+</div>

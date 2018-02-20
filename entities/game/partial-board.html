@@ -1,0 +1,51 @@
+<div class="jumbotron text-center">
+    <h1>Game Board Page</h1>
+</div>
+
+<div>
+        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+</div>
+
+<div>
+        <button class="btn btn-info" ng-click="open()" style="margin: 15px;">Open Modal</button>
+      
+        <h2 style="color: red;">{{result}}</h2>
+
+</div>
+
+    <div>  
+        <h4>Let's Count: {{startCount}}</h4>  
+        <a ng-click="startTimeout()" >Click to destroy Timer</a>  
+        <a ng-click="stopTimeout()" >Click to destroy Timer</a>  
+    </div>  
+
+<div class="row">
+    <div class="col-sm-6 container">
+        Player1: {{player1}} 
+        <select name="player1" ng-model="player1" class="form-control">
+             <option ng-repeat="option in players | filter : {'name' : '!'+player2 }| orderBy: 'name'" value="{{option.name}}">{{option.name}}</option>
+        </select> 
+        
+    </div>
+    <div class="col-sm-6 ">
+            Player 2:  {{player2}}
+            <select name="player2" ng-model="player2" class="form-control">
+                    <option ng-repeat="option in players| filter : {'name' : '!'+player1 }" value="{{option.name}}">
+                        {{option.name}}
+                    </option>
+               </select> 
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+            <div ui-view="field"></div>
+    </div>
+    
+    
+    <div class="col-sm-6">
+        <div ui-view="information"></div>
+    </div>
+
+    
+</div>
