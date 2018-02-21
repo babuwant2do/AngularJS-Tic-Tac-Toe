@@ -1,3 +1,6 @@
+/**
+ * log game result
+ */
 angular.module('ticTacToeApp').controller('GameBoardInfoController', function ($scope, Players, $uibModal, $timeout) {
 
     $scope.matchHistory=[];

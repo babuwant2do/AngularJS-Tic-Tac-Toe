@@ -1,5 +1,8 @@
 var ticTacToeApp = angular.module('ticTacToeApp')
 
+/**
+ * controls player information.. for noe add players
+ */
 ticTacToeApp.controller('PlayersController', function ($scope, Players) {
      $scope.newPlayer = '';
     // $scope.playersList= [

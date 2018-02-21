@@ -1,3 +1,7 @@
+/**
+ * this part controls the Game page
+ */
+
 angular.module('ticTacToeApp').controller('GameBoardController', function ($scope, Players, $uibModal, $timeout) {
 
     // console.warn(Constants.CellClass.player1);
@@ -23,7 +27,7 @@ angular.module('ticTacToeApp').controller('GameBoardController', function ($scop
     
 
     // ]]]]]]]]]]
-    $scope.closeAlert = function(index) {
+      $scope.closeAlert = function(index) {
         $scope.alerts.splice(index, 1);
       };
 
@@ -31,7 +35,7 @@ angular.module('ticTacToeApp').controller('GameBoardController', function ($scop
         $scope.alerts.push({type: type, msg: message});
       };
 
-      // modal 
+      // To open the Modal: game start/end confirmation 
       var modalData = "modal data x";
       $scope.open = function() {
         var modalInstance =  $uibModal.open({
@@ -53,7 +57,7 @@ angular.module('ticTacToeApp').controller('GameBoardController', function ($scop
         
       };
 
-      // timer: 
+      // timer: not used ... 
         $scope.startCount = 0;  
         $scope.startTimeout = function () {  
             $scope.startCount = $scope.startCount + 1;  
@@ -69,7 +73,7 @@ angular.module('ticTacToeApp').controller('GameBoardController', function ($scop
             alert("Timer Stopped");  
         }  
 
-        // enent handler
+        // eVent handler
 
         $scope.$on("GAME_CELL_CLICKED", function(evt,data){ 
             // debugger;
@@ -105,10 +109,4 @@ angular.module('ticTacToeApp').controller('GameBoardController', function ($scop
       }); 
 })
 
-  // if(data.result){
-  //   // debugger;
-  //   console.log(data.winner);
-  //   $scope.matchHistory.push(data.winner +" Wins!");
-  // }else{
-  //   $scope.matchHistory.push("Match Draw");
-  // }
+  

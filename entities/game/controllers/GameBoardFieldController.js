@@ -1,3 +1,7 @@
+/**
+ * handles Only the game part... independently 
+ */
+
 angular.module('ticTacToeApp').controller('GameBoardFieldController', function ($scope, $uibModal, $timeout) {
 
     
@@ -16,6 +20,7 @@ angular.module('ticTacToeApp').controller('GameBoardFieldController', function (
     addAlert($scope.currentPlayer? "Player 1 [O]'s Turn" : "Player 2 [X]'s Turn");
 
 
+    // on each cell clicked : on players action
     $scope.buttonBoardCellClick = function(row,col){
         console.log("Clicked");
         console.log(row +' : '+col);
@@ -62,6 +67,7 @@ angular.module('ticTacToeApp').controller('GameBoardFieldController', function (
     }
     
 
+    // reset entire game bord for a fresh start
     $scope.resetBoard = function () {
         for (var i = 0; i < 3; i++) {
             for (var j = 0; j < 3; j++) {
@@ -80,7 +86,9 @@ angular.module('ticTacToeApp').controller('GameBoardFieldController', function (
     }
 
 
-    
+    /** 
+     * find a winner and return winning information if winner found otherwise retun null
+    */
     function findWinner(){
         for (var i = 0; i < 3; i++) {
             //row wise 
@@ -102,6 +110,9 @@ angular.module('ticTacToeApp').controller('GameBoardFieldController', function (
         return null;
     }
 
+    /** 
+     * chek is there any empty cell or not?
+    */
     function isBoardPlayableFunc(){
         for (var i = 0; i < 3; i++) {
             for (var j = 0; j < 3; j++) {
@@ -135,12 +146,20 @@ angular.module('ticTacToeApp').controller('GameBoardFieldController', function (
         ($scope.board[row][col]).class = classVal;
     }
 
+    /**
+     * thhings to do when winner found
+     * @param {*} winnerInfo 
+     */
     function celebrateWinning(winnerInfo){
         console.warn("Celebtity  Winner is "+ winnerInfo.winner);
         markWinningCell(winnerInfo.winningCell);
         fireGameResult(true, winnerInfo.winner);
     }
 
+    /**
+     * color differently the winnign cell combination
+     * @param {*} indexArr 
+     */
     function markWinningCell(indexArr){
         if (indexArr instanceof Array) {
             indexArr.forEach(element => {
