@@ -10,6 +10,7 @@ angular.module('ticTacToeApp').controller('GameBoardFieldController', function (
         [{value:'-', class:'free-cell'}, {value:'-', class:'free-cell'}, {value:'-', class:'free-cell'}]
     ]
     $scope.alerts =[];
+    $scope.gameStarted = false;
     var boardStatus = 1;// 1: playable, 2: hasResult, 3: Draw
     // $scope.alerts[0] = $scope.currentPlayer? "Player 1 [O]'s Turn" : "Player 2 [X]'s Turn";
     addAlert($scope.currentPlayer? "Player 1 [O]'s Turn" : "Player 2 [X]'s Turn");
@@ -165,10 +166,23 @@ angular.module('ticTacToeApp').controller('GameBoardFieldController', function (
     }
 
     fireGameResult = function(result, winner = null){
-        console.log("Clicked GameBoardFieldController");
+        console.log("---->>>>> Clicked GameBoardFieldController"+ winner);
         $scope.$emit("GAME_RESULT_EMMIT",{result, winner}); 
     }
 
+
+    //GAME_START_BROADCAST
+    $scope.$on("GAME_START_BROADCAST", function(evt,data){ 
+        // debugger;
+        console.log("**** GAME_START_BROADCAST:: "+ evt +" ::: "+data.gameStarted);
+        $scope.gameStarted = data.gameStarted;
+        $scope.alerts =[];
+        if(data.gameStarted){
+            // players turn 
+            addAlert($scope.currentPlayer? "Player 1 [O]'s Turn" : "Player 2 [X]'s Turn");
+        }
+        
+    }); 
 
 
     // fireFindWinner = function(winner){

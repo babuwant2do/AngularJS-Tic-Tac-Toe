@@ -6,36 +6,38 @@
         <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
 </div>
 
-<div>
-        <button class="btn btn-info" ng-click="open()" style="margin: 15px;">Open Modal</button>
-      
-        <h2 style="color: red;">{{result}}</h2>
 
-</div>
 
-    <div>  
+    <!-- <div>  
         <h4>Let's Count: {{startCount}}</h4>  
         <a ng-click="startTimeout()" >Click to destroy Timer</a>  
         <a ng-click="stopTimeout()" >Click to destroy Timer</a>  
-    </div>  
+    </div>   -->
 
-<div class="row">
+<div class="row" ng-disabled="gameRunning">
     <div class="col-sm-6 container">
         Player1: {{player1}} 
-        <select name="player1" ng-model="player1" class="form-control">
+        <select name="player1" ng-model="player1" class="form-control" ng-disabled="isMatchStarted">
              <option ng-repeat="option in players | filter : {'name' : '!'+player2 }| orderBy: 'name'" value="{{option.name}}">{{option.name}}</option>
         </select> 
         
     </div>
     <div class="col-sm-6 ">
             Player 2:  {{player2}}
-            <select name="player2" ng-model="player2" class="form-control">
+            <select name="player2" ng-model="player2" class="form-control" ng-disabled="isMatchStarted">
                     <option ng-repeat="option in players| filter : {'name' : '!'+player1 }" value="{{option.name}}">
                         {{option.name}}
                     </option>
                </select> 
-
     </div>
+</div>
+
+<div>
+    <button class="btn btn-info" ng-click="open()" ng-disabled="!isPlayersSelected()" style="margin: 15px;">{{isMatchStarted ? "End Game" : "Start Game"}}</button>
+    <button class="btn btn-info" ng-click="resetBoard()" ng-disabled="isMatchStarted" style="margin: 15px;">Reset Players</button>
+    
+    <h2 style="color: red;">{{result}}</h2>
+
 </div>
 <div class="row">
     <div class="col-sm-6">

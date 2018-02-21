@@ -12,17 +12,25 @@ ticTacToeApp.controller('PlayersController', function ($scope, Players) {
         
         // console.log($scope.playersList.indexOf({name: $scope.newPlayer, sex:'M'}));
 
-        //foreach is not a good idea.. can not break the loop.. use normal loop
-        angular.forEach($scope.playersList, function(player){
-            if(player.name === $scope.newPlayer){
-                console.log('compare and found: '+ $scope.newPlayer +' with '+ player.name);
-                return;
-            }else{
-                console.log('compare: '+ $scope.newPlayer +' with '+ player.name);
-            }
-        });
+        // foreach is not a good idea.. can not break the loop.. use normal loop
+        // angular.forEach($scope.playersList, function(player){
+        //     if(player.name === $scope.newPlayer){
+        //         console.log('compare and found: '+ $scope.newPlayer +' with '+ player.name);
+        //         return;
+        //     }else{
+        //         console.log('compare: '+ $scope.newPlayer +' with '+ player.name);
+        //     }
+        // });
 
-        var msg = Players.addPlayer({name: $scope.newPlayer, wins:0, loose: 0});
+        for(var i = 0; i< $scope.playersList.length; i++){
+            if($scope.playersList[i].name === $scope.newPlayer){
+                alert('Already Exist : '+ $scope.newPlayer);
+                return;
+            }
+        }
+
+        var msg = Players.addPlayer({name: $scope.newPlayer, wins:0, loose: 0, draw:0});
+        $scope.newPlayer = null;
         console.log("on Add Player: "+msg);
     }
 

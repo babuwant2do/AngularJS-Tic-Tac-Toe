@@ -3,7 +3,7 @@
         <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
 </div>
 
-<div ng-repeat="row in [0,1,2]" class="container-fluid">
+<div ng-repeat="row in [0,1,2]" ng-show="gameStarted" class="container-fluid">
     <button class="container-fluid cell" ng-bind="getCellValue(row, col)" ng-class="getCellClass(row,col)"  ng-repeat="col in [0,1,2]" ng-click="buttonBoardCellClick(row,col)">
         <!-- {{ board[row][col]? board[row][col] : '-' }} -->
         <!-- {{(board[row][col]).value}} -->
@@ -11,6 +11,6 @@
     </button>
 </div>
 
-<div>
+<div ng-show="gameStarted">
     <button class="btn btn-info" ng-click="resetBoard()" style="margin: 15px;">Reset</button>
 </div>

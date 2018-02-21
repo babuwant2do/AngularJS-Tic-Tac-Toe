@@ -1,4 +1,7 @@
 <div class="jumbotron text-center">
         <h3>Users Details Page</h3>
-        <div>{{selectedUser.name}}</div>
+        <h4>{{selectedUser.name}}</h4>
+        <div ng-if="selectedUser">WON: {{selectedUser.wins}}</div>
+        <div ng-if="selectedUser">LOOSE: {{selectedUser.loose}}</div>
+        <div ng-if="selectedUser">DRAW: {{selectedUser.draw}}</div>
 </div>

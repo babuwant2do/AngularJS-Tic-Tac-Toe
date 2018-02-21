@@ -22,4 +22,11 @@ angular.module('ticTacToeApp').controller('GameBoardInfoController', function ($
         // }
         
     });
+
+    $scope.$on("GAME_START_BROADCAST", function(evt,data){ 
+        // debugger;
+        console.log("**** GAME_START_BROADCAST : INFO:: "+ evt +" ::: "+data.gameStarted);
+        $scope.matchHistory=[];
+        
+    }); 
 })
